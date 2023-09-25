@@ -11,31 +11,32 @@
   <div class="container">
     <div class="title">Registration</div>
     <div class="content">
-      <form action="#">
+      <form action="" method="post" class="needs-validation" novalidate>
+        {% csrf_token %}
         <div class="user-details">
           <div class="input-box">
             <span class="details">Name</span>
-            <input for="{{formulario.name.id_for_label }}" type="text" placeholder="Enter your name" name="name" required>
+            <input type="text" class="form-control" placeholder="Enter your name" name="name" required>
           </div>
           <div class="input-box">
             <span class="details">Last Name</span>
-            <input type="text" placeholder="Enter your last name" required>
+            <input type="text" class="form-control" placeholder="Enter your last name" name="last_name" required>
           </div>
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" placeholder="Enter your email" required>
+            <input type="text" class="form-control" placeholder="Enter your email" name="email" required>
           </div>
           <div class="input-box">
             <span class="details">Cpf</span>
-            <input type="text" placeholder="Enter your cpf" required>
+            <input type="text" class="form-control" placeholder="Enter your cpf" name="cpf" required>
           </div>
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" placeholder="Enter your number" required>
+            <input type="text" class="form-control" placeholder="Enter your phone number" name="phone_number" required>
           </div>
           <div class="input-box">
             <span class="details">Age</span>
-            <input type="text" placeholder="Enter your age" required>
+            <input type="text" class="form-control" placeholder="Enter your age" name="age" required>
           </div>
         </div>
         <div class="gender-details">

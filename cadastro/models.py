@@ -7,4 +7,4 @@ class Register(forms.Form):
     cpf = forms.IntegerField()
     phone_number = forms.IntegerField()
     age = forms.IntegerField()
-    gender = forms.BooleanField()
+    gender = forms.ChoiceField()

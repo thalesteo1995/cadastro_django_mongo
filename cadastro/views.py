@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Register
-from .tasks import process_register
+from .tasks import task_process_register
 
 def cadastro(request):
     register = Register(request.POST)
@@ -14,5 +14,7 @@ def cadastro(request):
         "age": register["age"].value(),
         "gender": register["gender"].value(),
     }
-    process_register(form_data=form_data)
+    
+    print(form_data)    
+    task_process_register.delay(form_data=form_data)
     return render(request, 'cadastro.html',  {'register': register})

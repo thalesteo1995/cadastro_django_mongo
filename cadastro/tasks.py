@@ -1,3 +1,4 @@
+from celery import shared_task
 
 def process_register(form_data):
     name = form_data["name"]
@@ -6,7 +7,9 @@ def process_register(form_data):
     cpf = form_data["cpf"]
     phone_number = form_data["phone_number"]
     age = form_data["age"]
+    gender = form_data["gender"]
     
-    print(f"Meu nome é: {name}")
-
+@shared_task
+def task_process_register(form_data):
+    process_register(form_data)
     
