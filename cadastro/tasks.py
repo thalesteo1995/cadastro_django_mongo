@@ -7,7 +7,6 @@ def process_register(form_data):
     cpf = form_data["cpf"]
     phone_number = form_data["phone_number"]
     age = form_data["age"]
-    gender = form_data["gender"]
     
 @shared_task
 def task_process_register(form_data):

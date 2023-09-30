@@ -12,7 +12,6 @@ def cadastro(request):
         "cpf": register["cpf"].value(),
         "phone_number": register["phone_number"].value(),
         "age": register["age"].value(),
-        "gender": register["gender"].value(),
     }
     
     print(form_data)    
