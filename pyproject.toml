@@ -10,6 +10,8 @@ packages = [{include = "cadastro_django_mongo"}]
 python = "^3.8"
 django = "^4.2.5"
 celery = "^5.3.4"
+pymongo = "4.3.3"
+termcolor = "^2.3.0"
 
 
 [build-system]
