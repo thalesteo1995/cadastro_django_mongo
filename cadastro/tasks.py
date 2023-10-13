@@ -1,4 +1,3 @@
-from celery import shared_task
 from src.mongo import Mongo
 
 def process_register(form_data):
@@ -17,11 +16,7 @@ def process_register(form_data):
         "phone_number": phone_number,
         "age": age
                  }
-    return form_data
-    
-@shared_task
-def task_process_register(form_data):
-    form_data = process_register(form_data)
     db = Mongo(database="my_database", collection="my_collection")
-    db.insert(form_data)
+    db.insert_doc(form_data)
+    print(form_data)
     

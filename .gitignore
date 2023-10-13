@@ -29,6 +29,7 @@ false
 # Arquivos e pastas escritos no momento da rodada
 Saida/*
 logs/*
+data/*
 .ipynb_checkpoints
 
 # Ignore dynaconf secret files

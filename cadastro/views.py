@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Register
-from .tasks import task_process_register
+from .tasks import process_register
 
 def cadastro(request):
     register = Register(request.POST)
@@ -13,7 +13,8 @@ def cadastro(request):
         "phone_number": register["phone_number"].value(),
         "age": register["age"].value(),
     }
-    
-    print(form_data)    
-    task_process_register.delay(form_data=form_data)
+    valores_vazios = all(not valor for valor in form_data.values())
+    if valores_vazios:
+        return render(request, 'cadastro.html',  {'register': register})
+    process_register(form_data=form_data)
     return render(request, 'cadastro.html',  {'register': register})

@@ -13,9 +13,9 @@ class Mongo(object):
         self.database = database
         self.collection = collection
 
-    def insert(self, document: Dict):
-        client = MongoClient("mongodb://%s:%s@127.0.0.1" % ("user", "pass"))
+    def insert_doc(self, document: Dict):
+        client = MongoClient('localhost', 27017)
         db = client[self.database]
         collection = db[self.collection]
         collection.insert_one(document)
-        print(colored(f"Documento: {document} inserido no BD!", color="blue"))
+        

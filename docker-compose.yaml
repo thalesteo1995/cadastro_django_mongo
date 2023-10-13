@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    container_name: "meu-rabbitmq"
+    ports:
+      - "5672:5672"  # Porta para comunicação padrão
+      - "15672:15672"  # Porta para o painel de controle Web (opcional)
+    environment:
+      RABBITMQ_DEFAULT_USER: ""
+      RABBITMQ_DEFAULT_PASS: ""
+
+  mongo:
+      image: mongo
+      container_name: meu-mongo
+      ports:
+        - "27017:27017"
+      volumes:
+        - ./data:/data/db
+
+  mongo-express:
+      image: mongo-express
+      container_name: meu-mongo-express
+      ports:
+        - "8081:8081"
+      environment:
+        ME_CONFIG_MONGODB_SERVER: mongo
+        ME_CONFIG_MONGODB_PORT: 27017
+        ME_CONFIG_BASICAUTH_USERNAME: ''  
+        ME_CONFIG_BASICAUTH_PASSWORD: ''
