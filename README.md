@@ -11,6 +11,7 @@ cadastro que salva as informações preenchidas em um db mongo.
   4) rode o serviço `python3 manage.py runserver`
 
 - Para acessar o db no browser:  `localhost:8081`
+- Para acessar o formulário:  `localhost:8000/cadastro)`
 
 ### Requisitos
 - Poetry 
